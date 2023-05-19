@@ -1,0 +1,78 @@
+category,variable,title_var_en,desc_var_en,digits
+HDI,idhm,HDI (overall),"Geometric average of the education, health, and income indicators",3
+HDI,idhm_e,HDI (education),Education component of the Human Development Index,3
+HDI,idhm_l,HDI (health),Health component of the Human Development Index,3
+HDI,idhm_r,HDI (income),Income component of the Human Development Index,3
+Demographic,densidade,Pop. Density,Ratio between population and the area of the city.,0
+Demographic,espvida,Life Expectancy,Life expectancy at birth.,2
+Demographic,fectot,Total fertility rate,Average number of childs per woman in fertile age.,3
+Demographic,mort1,Child mortality (1 year),Child mortality rate (1 year) per 1000.,2
+Demographic,mort5,Child mortality (5 years),Child mortality rate (5 years) per 1000.,2
+Demographic,pop,Population,Total population.,0
+Demographic,razdep,Dependence Ratio,Ratio between the sum of the elder (65 and over) and the young (14 and under) in relation to the adult population.,2
+Demographic,t_env,Aging Rate,Ratio between the elder (65 and over) and young (14 and under).,2
+Demographic - Age group,pop_1,Population (0-19),Total population aged between 0 and 19 years,0
+Demographic - Age group,pop_2,Population (20-29),Total population aged between 20 and 29 years,0
+Demographic - Age group,pop_3,Population (30-39),Total population aged between 30 and 39 years,0
+Demographic - Age group,pop_4,Population (40-49),Total population aged between 40 and 49 years,0
+Demographic - Age group,pop_5,Population (50-59),Total population aged between 50 and 59 years,0
+Demographic - Age group,pop_6,Population (60-69),Total population aged between 60 and 69 years,0
+Demographic - Age group,pop_7,Population (70-79),Total population aged between 70 and 79 years,0
+Demographic - Age group,pop_8,Population (80+),Total population aged 80 years or over,0
+Income,rdpc,Avg. HIPC,Average Household Income per capita (HIPC),0
+Income,rdpc1,Avg. HIPC 1st quintile,Average Household Income per capita (HIPC) from the poorest quintile.,0
+Income,rdpc10,Avg. HIPC top decile,Average Household Income per capita (HIPC) from the richest decile.,0
+Income,rdpc2,Avg. HIPC 2nd quintile,Average Household Income per capita (HIPC) from the 2nd quintile.,0
+Income,rdpc3,Avg. HIPC 3rd quintile,Average Household Income per capita (HIPC) from the 3rd quintile.,0
+Income,rdpc4,Avg. HIPC 4th quintile,Average Household Income per capita (HIPC) from the 4th quintile.,0
+Income,rdpc5,Avg. HIPC 5th quintile,Average Household Income per capita (HIPC) from the richest quintile.,0
+Income,rdpct,Avg. HIPC (zero excluded),Average Household Income per capita (HIPC) excluding zero income households,0
+Income,rind,Avg. HIPC Extreme Poverty,Average Household Income per capita among the individuals in extreme povery (less than R$70 per month),0
+Income,rmpob,Avg. HIPC Poverty,Average Household Income per capita among the individuals in extreme povery (less than R$140 per month),0
+Income,rpob,Avg. HIPC Vulnerable to Poverty,Average Household Income per capita among the individuals in extreme povery (less than R$255 per month),0
+Income,theil,Theil Index,The logarithm of the ratio of the arithmetic mean and the geometric mean of the HIPC,2
+Income - Distribution,corte1,Family Income (per capita) 1st quintile,Value of the 1st quintile in the family income per capita distribution,0
+Income - Distribution,corte1,Family Income (per capita) 1st quintile,Value of the 1st quintile in the family income per capita distribution,0
+Income - Distribution,corte2,Family Income (per capita) 2nd quintile,Value of the 2nd quintile in the family income per capita distribution,0
+Income - Distribution,corte3,Family Income (per capita) 3rd quintile,Value of the 3rd quintile in the family income per capita distribution,0
+Income - Distribution,corte4,Family Income (per capita) 4th quintile,Value of the 4th quintile in the family income per capita distribution,0
+Income - Distribution,corte9,Family Income (per capita) 5th quintile,Value of the 9th decile in the family income per capita distribution,0
+Income - Distribution,gini,Gini Index,Family income per capita Gini Index. A value closer to 0 indicates more equality while a value closer to 1 indicates higher inequality.,2
+Income - Distribution,pren10ricos,Share top 10%,Percentage of total income appropriated by the top 10% of the population with the highest per capita household income,1
+Income - Distribution,pren20,Share bottom 20%,Percentage of total income appropriated by the 20% of the population with the lowest Household Income per capita.,1
+Income - Distribution,pren20ricos,Share top 20%,Percentage of total income appropriated by the top 20% of the population with the highest per capita household income,1
+Income - Distribution,pren40,Share bottom 40%,Percentage of total income appropriated by the 40% of the population with the lowest Household Income per capita.,1
+Income - Distribution,pren60,Share bottom 60%,Percentage of total income appropriated by the 60% of the population with the lowest Household Income per capita.,1
+Income - Distribution,pren80,Share bottom 80%,Percentage of total income appropriated by the 80% of the population with the lowest Household Income per capita.,1
+Income - Distribution,prentrab,Share labor,Percentage of income from labor income.,1
+Income - Distribution,r1040,Ratio 10/40,Ratio between the average HIPC of top 10% with the bottom 40%,1
+Income - Distribution,r2040,Ratio 20/40,Ratio between the average HIPC of top 20% with the bottom 40%,1
+Income - Poverty,pind,Extreme Povery (share),Share of individuals with less than R$70 per month (Household Income per capita),1
+Income - Poverty,pindcri,Extreme Poverty Children (share),Share of children with less than R$70 per month (Household Income per capita),1
+Income - Poverty,pmpob,Poverty (share),Share of individuals with less than R$140 per month (Household Income per capita),1
+Income - Poverty,pmpobcri,Poverty Children (share),Share of children with less than R$140 per month (Household Income per capita),1
+Income - Poverty,ppob,Vulnerable to Poverty (share),Share of individuals with less than R$255 per month (Household Income per capita),1
+Income - Poverty,ppobcri,Vulnerable to Poverty Children (share),Share of children with less than R$255 per month (Household Income per capita),1
+Education,e_anosestudo,Expected years of Study,Expected number of years of study at 18 years.,1
+Education,t_analf15m,Rate of illiteracy (15+),Share of the population 15 years or over who cannot read or write a simple note.,2
+Education,t_analf18m,Rate of illiteracy (18+),Share of the population 18 years or over who cannot read or write a simple note.,2
+Education,t_analf25m,Rate of illiteracy (25+),Share of the population 25 years or over who cannot read or write a simple note.,2
+Education,t_fund25m,Share Primary Education (25+),Share of the population 25 years or over who completed Primary Education (elementray school),2
+Education,t_med25m,Share Secondary Education (25+),Share of the population 25 years or over who completed Secondary Education (high school),2
+Education,t_super25m,Share Tertiary Education (25+),Share of the population 25 years or over who completed Tertiary Education (college),2
+Work,cpr,Employment Rate (Self-employed),Share of working-age individuals that are self-employed.,2
+Work,emp,Employment Rate (Entrepeneurs),Share of working-age individuals that are entrepeneurs.,2
+Work,p_agro,Employment Rate (Agriculture),Share of working-age individuals employed in the agriculture sector.,2
+Work,p_com,Emplyment Rate (Commerce),Share of working-age individuals employed in the commerce sector.,2
+Work,p_constr,Employment Rate (Construction),Share of working-age individuals employed in the construction sector.,2
+Work,p_extr,Employment Rate (Mineral Extraction),Share of working-age individuals employed in the mineral extraction sector.,2
+Work,p_fund,Education (primary),Share of occupied working-age individuals that completed atleast their primary education,2
+Work,p_med,Education (secondary),Share of occupied working-age individuals that completed atleast their secondary education (high school),2
+Work,p_serv,Employment Rate (Services),Share of working-age individuals employed in the services sector.,2
+Work,p_siup,Employment Rate (Mineral Extraction),Share of working-age individuals employed in the mineral extraction sector.,2
+Work,p_super,Education (tertiary),Share of occupied working-age individuals that completed atleast their tertiary education (college),2
+Work,p_transf,Employment Rate (Manufacturing),Share of working-age individuals employed in the manufacturing sector.,2
+Work,renocup,Work Income Avg.,Average income received by workers,0
+Work,t_des,Unemployment Rate,"Percentage of economically active population in this age group who were unemployed, meaning they were not employed in the week prior to the Census date but had actively sought employment during the previous month.",1
+Work,t_des1824,Unemployment Rate (18-24),"Percentage of economically active population in this age group who were unemployed, meaning they were not employed in the week prior to the Census date but had actively sought employment during the previous month.",1
+Work,t_des2529,Unemployment Rate (25-29),"Percentage of economically active population in this age group who were unemployed, meaning they were not employed in the week prior to the Census date but had actively sought employment during the previous month.",1
