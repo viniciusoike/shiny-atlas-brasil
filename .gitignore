@@ -4,3 +4,6 @@
 .Ruserdata
 
 data-raw/
+!data-raw/process_data.R
+!data-raw/process_rms.R
+!data-raw/shapes.R
