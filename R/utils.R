@@ -6,7 +6,8 @@ clean_geometries <- function(shp) {
   
 }
 # Accumulated consumer price inflation from Aug/2010-Jan/2023
-cpi_adjust <- 2.09203170
+cpi_adjust00 <- 3.96710740
+cpi_adjust10 <- 2.09203170
 # End of period exchange rate (31/01/2023)
 brl_usd <- 5.09
 
@@ -34,5 +35,16 @@ aboutme_en <-
   Since graduating, I've gained experience in both the tech and consulting sectors, working primarily in real estate.
   I'm particularly passionate about economics, urbanism, and real estate; I enjoy making apps and data science tools in R to solve real-world problems."
 
-about_app <- 
-  "Consolidated as one of the largest tools for disclosing information about human development in Brazil, the Atlas of Human Development in Brazil platform has the goal of offering, in an uncomplicated manner, broad access to different statistic information that reveal characteristics and social inequalities in the Brazilian territory."
+about_app1 <- 
+  "The Atlas of Human Development is a portrait of development indicators in Brazil. 
+  It gives access to informations that reveal socioeconomic realities and inequalities.
+  Data is built upon IBGE's decennial Census and yearly PNAD/C survey. It is 
+the product of a joint effort between PNUD (UN), IPEA, and FJP."
+
+about_app2 <- 
+"The interactive map displays both regions and UDHs (human development units) for the 
+major metropolitan regions of Brazil in 2000 and 2010. Income values have been
+adjusted for inflation up to jan-23. Map options allow for different forms of aggregations and 
+color palettes. The ranking tool ranks metro regions and includes more recent data from PNAD.
+Finally, the download data tool is a convenient way to download all of the data used in this app.
+"
