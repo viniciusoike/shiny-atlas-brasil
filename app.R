@@ -24,7 +24,7 @@ ui <- navbarPage("Atlas Brasil", id = "nav",
                 selectInput("resolution", "Level of Aggregation", c("UDH", "Region"), selected = "UDH"),
                 selectInput("metro", "Metro Region", choices = NULL, selected = "Baixada Santista"),
                 selectInput("year", "Year", choice_years, selected = 2010),
-                selectInput("category", "Category", levels(dict$category), selected = "HDI"),
+                selectInput("category", "Category", unique(dict$category), selected = "HDI"),
                 selectInput("variable", "Variable", choices = NULL, selected = "HDI (overall)"),
                 selectInput("maptype", "Type of Map", names(choice_type), selected = "Natural Breaks (Jenks)"),
                 numericInput("ngroup", "Number of Groups", 5, min = 3, max = 10, step = 1),
@@ -39,7 +39,7 @@ ui <- navbarPage("Atlas Brasil", id = "nav",
             sidebarPanel(width = 3,
               h3("Ranking and Evolution of Metro Regions"),
               p("This tool allows you to rank and see the evolution of these variables across the Metropolitan Regions. Data is available for only these 20 metro regions."),
-              selectInput("cat_plot", htmltools::HTML("<b>Category</b>"), levels(dict$category), selected = "HDI"),
+              selectInput("cat_plot", htmltools::HTML("<b>Category</b>"), unique(dict$category), selected = "HDI"),
               selectInput("var_plot", htmltools::HTML("<b>Variable</b>"), choices = NULL, selected = "HDI (overall)"),
               h5("Variable Description"),
               htmlOutput("desc_plot")
@@ -94,14 +94,42 @@ server <- function(input, output, session) {
     updateSelectInput(inputId = "variable", choices = choices)
   })
   
+  #------- Initialize the Memory ----------
+  selected_vals = reactiveValues(resolution = "UDH", metro = "Baixada Santista")
   res <- reactive({input$resolution})
   
-  observeEvent(res(), {
-    if (res() == "UDH") {
-      updateSelectInput(inputId = "metro", choices = metro_choice_udh)
+  #------ Whenever any of the inputs are changed, it only modifies the memory----
+  observe({
+    req(res(), input$metro)
+    selected_vals$resolution <- res()
+    selected_vals$metro <- input$metro
+    
+  })
+  
+  # observeEvent(res(), {
+  #   if (res() == "UDH") {
+  #     updateSelectInput(inputId = "metro", choices = metro_choice_udh)
+  #   } else {
+  #     updateSelectInput(inputId = "metro", choices = metro_choice_region)
+  #   }
+  # })
+  
+  observe({
+    
+    if (res() == "UDH")  {
+      metro_choices = metro_choice_udh
     } else {
-      updateSelectInput(inputId = "metro", choices = metro_choice_region)
+      metro_choices = metro_choice_region
     }
+    
+    if (selected_vals$metro %in% metro_choices) {
+      displayVal = selected_vals$metro
+    } else {
+      displayVal = NULL
+    }
+    
+    updateSelectInput(session, "metro", choices = metro_choices, selected = displayVal)
+    
   })
   
   city <- reactive({
@@ -135,12 +163,12 @@ server <- function(input, output, session) {
       n = input$ngroup
     )
   })
-  
+
 
 # Rank Plot ---------------------------------------------------------------
 
   category_rank <- reactive({
-    dplyr::filter(dict, category == input$cat_plot)
+    dplyr::filter(dict_rm, category == input$cat_plot)
   })
   
   observeEvent(category_rank(), {
