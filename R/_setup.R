@@ -15,7 +15,14 @@ atlas_region <- qs::qread(here("data/atlas_region.qs"))
 dict <- readr::read_csv(here("data/dictionary.csv"))
 cities <- qs::qread(here("data/shape_cities_metro.qs"))
 centroids <- readr::read_csv(here("data/shape_centroid_capitals.csv"))
-rmdata <- readr::read_rds(here("data/rmdata.rds"))
+rmdata <- readr::read_csv(here("data/rmdata.csv"))
+dict_rm <- readr::read_csv(here("data/dict_rm.csv"))
+
+rmdata <- dplyr::filter(rmdata, year %in% c(2000, 2010, 2021))
+
+rmdata <- rmdata %>%
+  filter(!(name_metro %in% c("Aracaju", "João Pessoa", "Macapá"))) %>%
+  mutate(name_metro = dplyr::if_else(name_metro == "Petrolina_Juazeiro", "Petrolina e Juazeiro", name_metro))
 
 # Choices -----------------------------------------------------------------
 
