@@ -1,0 +1,43 @@
+category,variable,title_var_en,desc_var_en,digits
+HDI,idhm,HDI (overall),"Geometric average of the education, health, and income indicators",3
+HDI,idhm_l,HDI (health),Health component of the Human Development Index,3
+HDI,idhm_e,HDI (education),Education component of the Human Development Index,3
+HDI,idhm_r,HDI (income),Income component of the Human Development Index,3
+Demographic,espvida,Life Expectancy,Life expectancy at birth.,2
+Demographic,mort1,Child mortality (1 year),Child mortality rate (1 year) per 1000.,2
+Demographic,t_env,Aging Rate,Ratio between the elder (65 and over) and young (14 and under).,2
+Demographic,razdep,Dependence Ratio,Ratio between the sum of the elder (65 and over) and the young (14 and under) in relation to the adult population.,2
+Education,anosest,Expected years of Study,Expected number of years of study at 18 years.,2
+Education,t_analf15m,Rate of illiteracy (15+),Share of the population 15 years or over who cannot read or write a simple note.,2
+Education,t_analf18m,Rate of illiteracy (18+),Share of the population 18 years or over who cannot read or write a simple note.,2
+Education,t_analf25m,Rate of illiteracy (25+),Share of the population 25 years or over who cannot read or write a simple note.,2
+Education,t_fund25m,Share Primary Education (25+),Share of the population 25 years or over who completed Primary Education (elementray school),2
+Education,t_med25m,Share Secondary Education (25+),Share of the population 25 years or over who completed Secondary Education (high school),2
+Education,t_super25m,Share Tertiary Education (25+),Share of the population 25 years or over who completed Tertiary Education (college),2
+Education,t_flfund,Enrollment Rate (Primary),Share of population aged 6-14 enrolled in primary school,2
+Education,t_flmed,Enrollment Rate (Sec.),Share of population aged 15-17 enrolled in secondary school,2
+Education,t_flsuper,Enrollment Rate (Tertiary),Share of population aged 18-24 enrolled in tertiary school,2
+Income,rdpc,Avg. HIPC,Average Household Income per capita (HIPC),0
+Income,rdpct,Avg. HIPC (excl. zero income),Average Household Income per capita (HIPC) excluding zero income households.,0
+Income,renocup,Work Income Avg.,Average income received by workers,0
+Income,prentrab,Share labor,Percentage of income from labor income.,2
+Income - Distribution,rdpc1,Avg. HIPC 1st quintile,Average Household Income per capita (HIPC) from the poorest quintile.,0
+Income - Distribution,rdpc2,Avg. HIPC 2nd quintile,Average Household Income per capita (HIPC) from the 2nd quintile.,0
+Income - Distribution,rdpc3,Avg. HIPC 3rd quintile,Average Household Income per capita (HIPC) from the 3rd quintile.,0
+Income - Distribution,rdpc4,Avg. HIPC 4th quintile,Average Household Income per capita (HIPC) from the 4th quintile.,0
+Income - Distribution,rdpc5,Avg. HIPC 5th quintile,Average Household Income per capita (HIPC) from the richest quintile.,0
+Income - Distribution,rdpc10,Avg. HIPC top decile,Average Household Income per capita (HIPC) from the richest decile.,0
+Income - Distribution,r1040,Ratio 10/40,Ratio between the average HIPC of top 10% with the bottom 40%,2
+Income - Distribution,r2040,Ratio 20/40,Ratio between the average HIPC of top 20% with the bottom 40%,2
+Income - Distribution,gini,Gini Index,Family income per capita Gini Index. A value closer to 0 indicates more equality while a value closer to 1 indicates higher inequality.,2
+Income - Distribution,theil,Theil Index,The logarithm of the ratio of the arithmetic mean and the geometric mean of the HIPC,2
+Income - Poverty,pind,Extreme Povery (share),Share of individuals with less than R$70 per month (Household Income per capita),2
+Income - Poverty,pmpob,Poverty (share),Share of individuals with less than R$140 per month (Household Income per capita),2
+Income - Poverty,ppob,Vulnerable to Poverty (share),Share of individuals with less than R$255 per month (Household Income per capita),2
+Income - Poverty,rind,Avg. HIPC Extreme Poverty,Average Household Income per capita among the individuals in extreme povery (less than R$70 per month),0
+Income - Poverty,rmpob,Avg. HIPC Poverty,Average Household Income per capita among the individuals in extreme povery (less than R$140 per month),0
+Income - Poverty,rpob,Avg. HIPC Vulnerable to Poverty,Average Household Income per capita among the individuals in extreme povery (less than R$255 per month),0
+Demographic,poptot,Population,Total population,0
+Demographic,pop_young,Population (0-18),Total population aged between 0 and 18 years.,0
+Demographic,pop_adult,Population (18-65),Total population aged between 18 and 65 years.,0
+Demographic,pop_elder,Population (65+),Total population aged 65 years or over.,0
