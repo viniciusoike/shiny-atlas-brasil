@@ -45,37 +45,40 @@ ui <- navbarPage("Atlas Brasil", id = "nav",
               htmlOutput("desc_plot")
             ),
             mainPanel(
-              plotlyOutput("plot", height = "700px", width = "100%")
+              withSpinner(
+                plotlyOutput("plot", height = "700px", width = "100%")
+              )
             ))
         ),
         tabPanel("Download the Data",
           sidebarLayout(
             sidebarPanel(width = 3,
               h3("Download Data"),
-              selectInput("dwn_geo", "Select Aggregation:", choices = c("Metro Region", "Region", "UDH"), selected = "UDH"),
+              selectInput("dwn_geo", "Select Aggregation:", choices = c("Metro Region", "Region", "UDH"), selected = "Metro Region"),
               checkboxInput("dwn_checkbox", "Include geometry?", value = FALSE),
               downloadButton("dwn_button", "Download", icon = icon("download"))
           ),
             mainPanel(width = 9,
               h3("Preview the data"),
-              DT::dataTableOutput("dwn_table")))
+              DT::dataTableOutput("dwn_table", width = "90%")))
           ),
         tabPanel("About",
                  fluidRow(
-                   column(4,
+                   column(5,
                           tags$div(
                             class = "container-fluid",
                             tags$h1("Vinicius Oike Reginatto"),
                             tags$h3("About Me"),
                             tags$p(aboutme_en),
                             tags$h3("About this app"),
-                            tags$p(about_app),
+                            tags$p(about_app1),
+                            tags$p(about_app2),
                             tags$h5("My links:"),
                             tags$ul(
-                              tags$li(tags$a(href = "https://twitter.com/viniciusoike", icon("twitter"), "Twitter")),
-                              tags$li(tags$a(href = "https://github.com/viniciusoike", icon("github"), "GitHub")),
-                              tags$li(tags$a(href = "https://www.linkedin.com/in/vinicius-oike-993826a9/", icon("linkedin"), "LinkedIn")),
-                              tags$li(tags$a(href = "https://www.modelodomundo.com", icon("globe"), "Personal Website"))
+                              tags$li(tags$a(href = "https://twitter.com/viniciusoike", target = "_blank", icon("twitter"), "Twitter")),
+                              tags$li(tags$a(href = "https://github.com/viniciusoike", target = "_blank", icon("github"), "GitHub")),
+                              tags$li(tags$a(href = "https://www.linkedin.com/in/vinicius-oike-993826a9/", target = "_blank", icon("linkedin"), "LinkedIn")),
+                              tags$li(tags$a(href = "https://www.modelodomundo.com", target = "_blank", icon("globe"), "Personal Website"))
                             )))
                  ))
 
