@@ -73,6 +73,7 @@ ui <- navbarPage("Atlas Brasil", id = "nav",
                             tags$h3("About this app"),
                             tags$p(about_app1),
                             tags$p(about_app2),
+                            tags$p(about_app3),
                             tags$h5("My links:"),
                             tags$ul(
                               tags$li(tags$a(href = "https://twitter.com/viniciusoike", target = "_blank", icon("twitter"), "Twitter")),

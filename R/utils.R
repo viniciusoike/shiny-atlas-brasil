@@ -30,21 +30,29 @@ get_choice_metro <- function(geo = "UDH") {
 }
 
 aboutme_en <-
-  "My name is Vinicius Oike Reginatto and I hold a Master's degree in Economics
-  from the University of São Paulo (USP), one of the most prestigious universities in Brazil.
-  Since graduating, I've gained experience in both the tech and consulting sectors, working primarily in real estate.
-  I'm particularly passionate about economics, urbanism, and real estate; I enjoy making apps and data science tools in R to solve real-world problems."
+  "My name is Vinicius Oike Reginatto, and I hold a Master's degree in Economics
+from the University of São Paulo (USP), one of the most prestigious universities in Brazil.
+ Since graduating, I have gained experience in both the tech and consulting sectors, primarily in real estate.
+ I am particularly passionate about economics, urbanism, and real estate.
+ I enjoy creating apps and data science tools in R to solve real-world problems."
 
-about_app1 <- 
-  "The Atlas of Human Development is a portrait of development indicators in Brazil. 
-  It gives access to informations that reveal socioeconomic realities and inequalities.
-  Data is built upon IBGE's decennial Census and yearly PNAD/C survey. It is 
-the product of a joint effort between PNUD (UN), IPEA, and FJP."
+about_app1 <-
+  "The Atlas of Human Development is a comprehensive collection of development indicators in Brazil.
+ It provides access to information that reveals socioeconomic realities and inequalities.
+ The data is compiled from IBGE's decennial Census and yearly PNAD/C survey. It is
+the result of a collaborative effort between PNUD (UN), IPEA, and FJP."
 
-about_app2 <- 
-"The interactive map displays both regions and UDHs (human development units) for the 
+about_app2 <-
+  "The interactive map displays both regions and UDHs (human development units) for the
 major metropolitan regions of Brazil in 2000 and 2010. Income values have been
-adjusted for inflation up to jan-23. Map options allow for different forms of aggregations and 
-color palettes. The ranking tool ranks metro regions and includes more recent data from PNAD.
-Finally, the download data tool is a convenient way to download all of the data used in this app.
-"
+adjusted for inflation up to January 2023. The map options allow for different forms of aggregation
+and color palettes. The ranking tool ranks metro regions and includes more recent data from PNAD.
+Finally, the download data tool provides a convenient way to download all of the data used in this app."
+
+about_app3 <-
+  "The construction of this app required extensive data cleaning, classification, and
+standardization. I chose a smaller subset of variables to keep the app manageable
+and to avoid overwhelming the user with options. For reference, the complete Atlas UDH dataset
+contains almost 230 variables. This smaller subset of variables also allowed me to better
+integrate the different Atlas datasets. In the future, I will provide more details about this process on my
+blog."
