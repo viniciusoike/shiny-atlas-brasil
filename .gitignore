@@ -2,3 +2,6 @@
 .Rhistory
 .RData
 .Ruserdata
+
+data-raw/atlas_data/
+data-raw/atlas_dictionary/
