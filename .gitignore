@@ -2,6 +2,8 @@
 .Rhistory
 .RData
 .Ruserdata
+.DS_Store
+.posit/
 
 data-raw/atlas_data/
 data-raw/atlas_dictionary/

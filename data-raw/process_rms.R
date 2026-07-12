@@ -16,18 +16,19 @@ dict_pnad <- read_excel(
   sheet = "subdictionary"
 )
 
-#> Import PNAD data base
-pnad_dat <- read_excel(here("data-raw/ADH_BASE_RADAR_2012-2021.xlsx"))
+#> Import PNAD data base (2012-2024, "Total B" sheet = totals without race breakdown)
+pnad_dat <- read_excel(here("data-raw/adh_radar_base_2012_2024.xlsx"), sheet = "Total B")
 #> Convert column names to lower
 names(pnad_dat) <- tolower(names(pnad_dat))
 #> Simplify and standardize metro names
 pnad_dat <- pnad_dat %>%
-  filter(agregacao == "RM_RIDE") %>%
+  filter(agregacao == "Região Metropolitana/Integrada") %>%
   rename(name_metro = nome, year = ano) %>%
   mutate(
-    name_metro = str_remove_all(name_metro, "(Região Metropolitana de)|\\(.+\\)"),
-    name_metro = str_remove(name_metro, "Região Administrativa Integrada de Desenvolvimento da"),
-    name_metro = str_trim(name_metro, side = "both")
+    name_metro = str_remove(name_metro, "Região Metropolitana de "),
+    name_metro = str_remove(name_metro, "Região Administrativa Integrada de Desenvolvimento da "),
+    name_metro = str_remove(name_metro, " \\(\\w{2}\\)$"),
+    name_metro = str_trim(name_metro)
   )
 
 #> Drop some variables and convert to numeric
@@ -120,7 +121,7 @@ census_dat <- census_dat %>%
 
 #> Stack tables
 #> OBS: Census data runs through 2000 and 2010 while PNAD data runs through
-#> 2012-2021
+#> 2012-2024
 unique(census_dat$year)
 unique(pnad_dat$year)
 
