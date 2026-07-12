@@ -26,7 +26,7 @@ setup_map <- function(rm, y, geo = "UDH") {
 }
 
 map_atlas <- function(
-  metro = "Porto Alegre",
+  metro = "RM Porto Alegre",
   year_sel = 2010,
   geo = "UDH",
   pal = "EKIO Blue-Orange",
@@ -53,7 +53,7 @@ map_atlas <- function(
 
   map_center <- if (is.null(dat$city_center)) 11 else c(dat$city_center, 11)
 
-  if (metro == "Rio de Janeiro") {
+  if (metro == "RM Rio de Janeiro") {
     dat$atlas <- sf::st_make_valid(dat$atlas)
   }
 
