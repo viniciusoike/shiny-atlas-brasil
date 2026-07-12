@@ -66,15 +66,15 @@ map_atlas <- function(
         n = n
       ),
       fill.legend = tm_legend(title = var_sel),
-      fill_alpha = 0.6,
-      col = "gray80",
-      lwd = 1,
+      fill_alpha = 0.7,
+      col = "gray90",
+      lwd = 0.8,
       id = id,
       popup.vars = popup_vars,
       popup.format = list(digits = digits)
     ) +
     tm_shape(dat$city_border) +
-    tm_borders(col = "gray50", lwd = 1.5) +
-    tm_basemap(server = "CartoDB.Positron") +
+    tm_borders(col = "gray75", lwd = 2) +
+    tm_basemap(server = "CartoDB.DarkMatter") +
     tm_view(set_view = map_center)
 }
