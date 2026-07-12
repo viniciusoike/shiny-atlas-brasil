@@ -52,7 +52,7 @@ pnad_dat <- pnad_dat %>%
 #> OBS: there is both a 20 RMs Excel sheet and a 24 RMs Excel sheet
 #> I import the more complete 24 RMs sheet.
 census_dat <- read_excel(
-  here("data-raw/dados_florianopolis/base final RM Florianขpolis/A - Base 24 RMs 2000_2010.xlsx")
+  here("data-raw/atlas_data/dados_florianopolis/base final RM Florianขpolis/A - Base 24 RMs 2000_2010.xlsx")
   )
 
 #> Convert column names to lower
