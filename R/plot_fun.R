@@ -47,7 +47,7 @@ plot_rank <- function(x) {
       showlegend = FALSE) %>%
     add_segments(
       x = ~year_2010,
-      xend = ~year_2021,
+      xend = ~year_2024,
       y = ~name_metro,
       yend = ~name_metro,
       color = I("gray60"),
@@ -57,28 +57,28 @@ plot_rank <- function(x) {
       y = ~name_metro,
       marker = list(size = 10),
       name = "2000",
-      color = I("#83c5be")
+      color = I("#A8D0E8")
     ) %>%
     add_markers(
       x = ~year_2010,
       y = ~name_metro,
       marker = list(size = 10),
       name = "2010",
-      color = I("#006d77")
+      color = I("#3A6EA5")
     ) %>%
     add_markers(
-      x = ~year_2021,
+      x = ~year_2024,
       y = ~name_metro,
       marker = list(size = 10),
-      name = "2021",
-      color = I("#004B51")
+      name = "2024",
+      color = I("#1E3A5F")
     ) %>%
     layout(
       title = paste0("Ranking: ", title),
       xaxis = list(title = title),
       yaxis = list(title = ""),
       margin = list(t = 40),
-      font = list(family = "sans-serif", size = 14)
+      font = list(family = "Helvetica Neue, Helvetica, Arial, sans-serif", size = 14)
     )
   
 }
