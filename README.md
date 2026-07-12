@@ -1,15 +1,58 @@
 # Atlas Brasil Explorer
 
-This is a repository for the Atlas Brasil Shiny Dashboard. You can access the interactive app [here](https://viniciusoike.shinyapps.io/shiny-atlas-brasil/).
+> Interactive Shiny dashboard for exploring human development indicators across Brazilian metropolitan regions.
 
-### Repository Structure
+[![Live App](https://img.shields.io/badge/Live%20App-Posit%20Connect-blue)](https://viniciusoike-shiny-atlas-brasil.share.connect.posit.cloud)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-This repository is organized and structured similarly to an R package, although it is not a package itself. I do so to keep the workflow efficient. The raw, uncleaned data from Atlas Brasil, downloaded from their [site](http://www.atlasbrasil.org.br/acervo/biblioteca), is inside the `/data-raw` folder. This folder also contains the R scripts used to clean the data. The original files and dictionaries are compressed in zip format. Additionally, I created the Excel sheets named `dictionary_*` since I had to translate all variable names and descriptions.
+## Overview
 
-The cleaned data is exported to the `/data` folder. Tables are exported to `csv` and the `sf` objects (shapefiles with data) are exported to `qs` for both size and efficiency reasons[^readme-1].
+This dashboard visualizes data from [Atlas Brasil](http://www.atlasbrasil.org.br/), a Brazilian research initiative that maps human development at the sub-municipal level. The app covers **25 metropolitan regions** and provides indicators for **2000 and 2010**, organized into categories including HDI, income, education, housing, and vulnerability.
 
-[^readme-1]: I did experiment with `gpkg` and `rds` with different types of compression as well and found the `qs` extension to work better. For more information on reading and writting `qs` files check the [qs repository](https://github.com/traversc/qs).
+Key features:
 
-The actual scripts used inside the app reside in the `/R` folder. The interactive map is made with `tmap` and the dumbbell plot is made with `plotly`. Data manipulation inside the app is minimal. The overall user interface (UI) and JavaScript code for the map was heavily inspired by the [SuperZip example from the Shiny Gallery](https://github.com/rstudio/shiny-examples/tree/main/063-superzip-example).
+- **Interactive choropleth map** — explore indicators at the UDH (Human Development Unit) or metropolitan region level, with customizable classification methods and color palettes
+- **Metro region rankings** — dumbbell chart comparing all metro regions across two census years for any selected indicator
+- **Data download** — export the full dataset (with or without geometry) in your preferred aggregation level
 
-To ensure future compatibility, I utilize the `renv` [package](https://rstudio.github.io/renv/articles/renv.html#dependency-discovery), which helps maintain the functionality of the app even if the packages used undergo changes.
+## Live Demo
+
+Access the app at: **https://viniciusoike-shiny-atlas-brasil.share.connect.posit.cloud**
+
+## Tech Stack
+
+| Tool | Purpose |
+|------|---------|
+| [Shiny](https://shiny.posit.co/) | Web application framework |
+| [tmap](https://r-tmap.github.io/tmap/) | Interactive choropleth maps |
+| [plotly](https://plotly.com/r/) | Dumbbell / ranking chart |
+| [qs](https://github.com/traversc/qs) | Fast serialization of spatial data |
+| [renv](https://rstudio.github.io/renv/) | Reproducible dependency management |
+
+## Repository Structure
+
+```
+.
+├── app.R              # Main Shiny app (UI + server)
+├── R/
+│   ├── _setup.R       # Data loading and UI choices
+│   ├── map_fun.R      # tmap rendering helpers
+│   ├── plot_fun.R     # plotly chart helpers
+│   └── utils.R        # Shared utilities
+├── data/              # Cleaned data (qs + csv)
+├── data-raw/          # Raw Atlas Brasil files + cleaning scripts
+├── styles.css         # Custom CSS
+└── gomap.js           # JavaScript for map interaction
+```
+
+Raw data is downloaded from the [Atlas Brasil library](http://www.atlasbrasil.org.br/acervo/biblioteca) and cleaned in `data-raw/`. Spatial objects are stored as `.qs` files for compact size and fast I/O; translated variable dictionaries (`dictionary_*.xlsx`) are also included there.
+
+## Related Dashboards
+
+| Dashboard | Description |
+|-----------|-------------|
+| [shiny-firjan-ifdm](https://github.com/viniciusoike/shiny-firjan-ifdm) | FIRJAN Municipal Development Index (IFDM) across all 5,570 Brazilian municipalities (2013–2023) |
+
+## Data Source
+
+Atlas Brasil is produced by the [PNUD Brasil](https://www.undp.org/pt/brazil), [Ipea](https://www.ipea.gov.br/), and [FJP](https://fjp.mg.gov.br/). The underlying methodology follows the UN Human Development Index framework applied at sub-municipal geographies.

@@ -1,10 +1,22 @@
-input[type="number"] {
-  max-width: 80%;
+/* ---- EKIO Brand Tokens -------------------------------------------- */
+:root {
+  --ekio-blue-900: #0D1B2A;
+  --ekio-blue-700: #1E3A5F;
+  --ekio-blue-600: #2B4C7E;
+  --ekio-blue-500: #3A6EA5;
+  --ekio-blue-400: #4A90C2;
+  --ekio-blue-100: #D4E8F5;
+  --ekio-blue-50:  #EEF5FA;
+  --ekio-gray-900: #1A202C;
+  --ekio-gray-700: #4A5568;
+  --ekio-gray-300: #E2E8F0;
 }
 
+/* ---- Map tab: full-screen layout ---------------------------------- */
+/* Bootstrap 5 navbar height is ~56px; adjust if custom padding is set */
 div.outer {
   position: fixed;
-  top: 41px;
+  top: 56px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -12,38 +24,46 @@ div.outer {
   padding: 0;
 }
 
-/* Customize fonts */
-body, label, input, button, select { 
-  font-family: 'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;
-  font-weight: 200;
-}
-h1, h2, h3, h4 { font-weight: 400; }
-
+/* ---- Map control panel -------------------------------------------- */
 #controls {
-  /* Appearance */
-  background-color: white;
+  background-color: #ffffff;
+  border-left: 3px solid var(--ekio-blue-400);
+  border-radius: 4px;
   padding: 0 20px 20px 20px;
   cursor: move;
-  /* Fade out while not hovering */
-  opacity: 0.65;
+  opacity: 0.68;
   zoom: 0.9;
   transition: opacity 500ms 1s;
+  box-shadow: 0 2px 12px rgba(30, 58, 95, 0.14);
 }
 #controls:hover {
-  /* Fade in while hovering */
-  opacity: 0.95;
+  opacity: 0.97;
   transition-delay: 0;
 }
+#controls h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ekio-blue-700);
+  border-bottom: 1px solid var(--ekio-gray-300);
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+}
 
-/* Position and style citation */
+/* ---- Citation ----------------------------------------------------- */
 #cite {
   position: absolute;
   bottom: 10px;
   left: 10px;
   font-size: 12px;
+  color: var(--ekio-gray-700);
 }
 
-/* If not using map tiles, show a white background */
+/* ---- Map background ----------------------------------------------- */
 .leaflet-container {
-  background-color: white !important;
+  background-color: #ffffff !important;
+}
+
+/* ---- Numeric input width ------------------------------------------ */
+input[type="number"] {
+  max-width: 80%;
 }
