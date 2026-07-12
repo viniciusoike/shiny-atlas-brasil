@@ -4,28 +4,41 @@ library(shinycssloaders)
 
 # EKIO brand theme ------------------------------------------------------------
 ekio_theme <- bs_theme(
-  version      = 5,
-  bg           = "#ffffff",
-  fg           = "#1A202C",
-  primary      = "#1E3A5F",
-  secondary    = "#3A6EA5",
-  success      = "#2C7A7B",
-  warning      = "#DD6B20",
-  "navbar-bg"  = "#1E3A5F",
-  base_font    = font_collection("Helvetica Neue", "Helvetica", "Arial", "sans-serif"),
-  heading_font = font_collection("Helvetica Neue", "Helvetica", "Arial", "sans-serif")
+  version = 5,
+  bg = "#ffffff",
+  fg = "#1A202C",
+  primary = "#1E3A5F",
+  secondary = "#3A6EA5",
+  success = "#2C7A7B",
+  warning = "#DD6B20",
+  "navbar-bg" = "#1E3A5F",
+  base_font = font_collection(
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    "sans-serif"
+  ),
+  heading_font = font_collection(
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    "sans-serif"
+  )
 )
 
 ui <- page_navbar(
-  title  = tags$span("Atlas Brasil", style = "font-weight: 600; letter-spacing: 0.03em;"),
-  id     = "nav",
-  theme  = ekio_theme,
+  title = tags$span(
+    "Atlas Brasil",
+    style = "font-weight: 600; letter-spacing: 0.03em;"
+  ),
+  id = "nav",
+  theme = ekio_theme,
   header = tags$head(
     includeCSS("styles.css"),
     includeScript("gomap.js")
   ),
 
-# Interactive Map -------------------------------------------------------------
+  # Interactive Map -------------------------------------------------------------
   nav_panel(
     "Interactive Map",
     fillable = FALSE,
@@ -33,31 +46,68 @@ ui <- page_navbar(
       class = "outer",
       tmapOutput("map", width = "100%", height = "100%"),
       absolutePanel(
-        id        = "controls",
-        fixed     = TRUE,
+        id = "controls",
+        fixed = TRUE,
         draggable = TRUE,
-        top       = 60,
-        left      = 75,
-        right     = "auto",
-        bottom    = "auto",
-        width     = 300,
-        height    = "auto",
+        top = 60,
+        left = 75,
+        right = "auto",
+        bottom = "auto",
+        width = 300,
+        height = "auto",
         h2("Atlas Brasil"),
-        selectInput("resolution", "Level of Aggregation", c("UDH", "Region"), selected = "UDH"),
-        selectInput("metro", "Metro Region", choices = NULL, selected = "Baixada Santista"),
+        selectInput(
+          "resolution",
+          "Level of Aggregation",
+          c("UDH", "Region"),
+          selected = "UDH"
+        ),
+        selectInput(
+          "metro",
+          "Metro Region",
+          choices = NULL,
+          selected = "Baixada Santista"
+        ),
         selectInput("year", "Year", choice_years, selected = 2010),
-        selectInput("category", "Category", unique(dict$category), selected = "HDI"),
-        selectInput("variable", "Variable", choices = NULL, selected = "HDI (overall)"),
-        selectInput("maptype", "Type of Map", names(choice_type), selected = "Natural Breaks (Jenks)"),
-        numericInput("ngroup", "Number of Groups", 5, min = 3, max = 10, step = 1),
-        selectInput("palette", "Palette", names(choice_pal), selected = "EKIO Blue"),
+        selectInput(
+          "category",
+          "Category",
+          unique(dict$category),
+          selected = "HDI"
+        ),
+        selectInput(
+          "variable",
+          "Variable",
+          choices = NULL,
+          selected = "HDI (overall)"
+        ),
+        selectInput(
+          "maptype",
+          "Type of Map",
+          names(choice_type),
+          selected = "Natural Breaks (Jenks)"
+        ),
+        numericInput(
+          "ngroup",
+          "Number of Groups",
+          5,
+          min = 3,
+          max = 10,
+          step = 1
+        ),
+        selectInput(
+          "palette",
+          "Palette",
+          names(choice_pal),
+          selected = "EKIO Blue"
+        ),
         h5("Variable Description"),
         htmlOutput("description")
       )
     )
   ),
 
-# Rank Metro Regions ----------------------------------------------------------
+  # Rank Metro Regions ----------------------------------------------------------
   nav_panel(
     "Rank Metro Regions",
     layout_sidebar(
@@ -69,8 +119,18 @@ ui <- page_navbar(
           "Compare variables across Metropolitan Regions.",
           "Census data (2000, 2010) combined with PNAD estimates (2024)."
         ),
-        selectInput("cat_plot", "Category", unique(dict$category), selected = "HDI"),
-        selectInput("var_plot", "Variable", choices = NULL, selected = "HDI (overall)"),
+        selectInput(
+          "cat_plot",
+          "Category",
+          unique(dict$category),
+          selected = "HDI"
+        ),
+        selectInput(
+          "var_plot",
+          "Variable",
+          choices = NULL,
+          selected = "HDI (overall)"
+        ),
         hr(),
         h6("Variable Description"),
         htmlOutput("desc_plot")
@@ -82,7 +142,7 @@ ui <- page_navbar(
     )
   ),
 
-# Download the Data -----------------------------------------------------------
+  # Download the Data -----------------------------------------------------------
   nav_panel(
     "Download the Data",
     layout_sidebar(
@@ -90,14 +150,16 @@ ui <- page_navbar(
         width = 280,
         h5("Download Data"),
         selectInput(
-          "dwn_geo", "Aggregation Level",
-          choices  = c("Metro Region", "Region", "UDH"),
+          "dwn_geo",
+          "Aggregation Level",
+          choices = c("Metro Region", "Region", "UDH"),
           selected = "Metro Region"
         ),
         checkboxInput("dwn_checkbox", "Include geometry?", value = FALSE),
         downloadButton(
-          "dwn_button", "Download",
-          icon  = icon("download"),
+          "dwn_button",
+          "Download",
+          icon = icon("download"),
           class = "btn-primary w-100 mt-2"
         )
       ),
@@ -111,7 +173,7 @@ ui <- page_navbar(
     )
   ),
 
-# About -----------------------------------------------------------------------
+  # About -----------------------------------------------------------------------
   nav_panel(
     "About",
     fillable = FALSE,
@@ -131,16 +193,22 @@ ui <- page_navbar(
           tags$ul(
             class = "list-unstyled",
             tags$li(tags$a(
-              href = "https://github.com/viniciusoike", target = "_blank",
-              icon("github"), " GitHub"
+              href = "https://github.com/viniciusoike",
+              target = "_blank",
+              icon("github"),
+              " GitHub"
             )),
             tags$li(tags$a(
               href = "https://www.linkedin.com/in/vinicius-oike-993826a9/",
-              target = "_blank", icon("linkedin"), " LinkedIn"
+              target = "_blank",
+              icon("linkedin"),
+              " LinkedIn"
             )),
             tags$li(tags$a(
-              href = "https://www.modelodomundo.com", target = "_blank",
-              icon("globe"), " Personal Website"
+              href = "https://www.modelodomundo.com",
+              target = "_blank",
+              icon("globe"),
+              " Personal Website"
             ))
           )
         )
@@ -150,8 +218,7 @@ ui <- page_navbar(
 )
 
 server <- function(input, output, session) {
-
-# Interactive Map -------------------------------------------------------------
+  # Interactive Map -------------------------------------------------------------
 
   category <- reactive({
     dplyr::filter(dict, category == input$category)
@@ -162,26 +229,49 @@ server <- function(input, output, session) {
     updateSelectInput(inputId = "variable", choices = choices)
   })
 
-  selected_vals <- reactiveValues(resolution = "UDH", metro = "Baixada Santista")
-  res <- reactive({ input$resolution })
+  selected_vals <- reactiveValues(
+    resolution = "UDH",
+    metro = "Baixada Santista"
+  )
+  res <- reactive({
+    input$resolution
+  })
 
   observe({
     req(res(), input$metro)
     selected_vals$resolution <- res()
-    selected_vals$metro      <- input$metro
+    selected_vals$metro <- input$metro
   })
 
   observe({
-    metro_choices <- if (res() == "UDH") metro_choice_udh else metro_choice_region
-    displayVal    <- if (selected_vals$metro %in% metro_choices) selected_vals$metro else NULL
-    updateSelectInput(session, "metro", choices = metro_choices, selected = displayVal)
+    metro_choices <- if (res() == "UDH") {
+      metro_choice_udh
+    } else {
+      metro_choice_region
+    }
+    displayVal <- if (selected_vals$metro %in% metro_choices) {
+      selected_vals$metro
+    } else {
+      NULL
+    }
+    updateSelectInput(
+      session,
+      "metro",
+      choices = metro_choices,
+      selected = displayVal
+    )
   })
 
-  city     <- reactive({ req(input$metro); input$metro })
-  variable <- reactive({ input$variable })
+  city <- reactive({
+    req(input$metro)
+    input$metro
+  })
+  variable <- reactive({
+    input$variable
+  })
 
   output$description <- renderUI({
-    title       <- paste0("<b>", variable(), "</b>:")
+    title <- paste0("<b>", variable(), "</b>:")
     description <- subset(dict, title_var_en == variable())$desc_var_en
     htmltools::HTML(paste(title, description))
   })
@@ -189,17 +279,17 @@ server <- function(input, output, session) {
   output$map <- renderTmap({
     req(input$year, input$maptype, input$palette, input$ngroup)
     map_atlas(
-      metro    = city(),
+      metro = city(),
       year_sel = input$year,
-      geo      = res(),
-      type     = input$maptype,
-      pal      = input$palette,
-      var_sel  = variable(),
-      n        = input$ngroup
+      geo = res(),
+      type = input$maptype,
+      pal = input$palette,
+      var_sel = variable(),
+      n = input$ngroup
     )
   })
 
-# Rank Plot -------------------------------------------------------------------
+  # Rank Plot -------------------------------------------------------------------
 
   category_rank <- reactive({
     dplyr::filter(dict_rm, category == input$cat_plot)
@@ -210,10 +300,12 @@ server <- function(input, output, session) {
     updateSelectInput(inputId = "var_plot", choices = choices)
   })
 
-  variable_rank <- reactive({ input$var_plot })
+  variable_rank <- reactive({
+    input$var_plot
+  })
 
   output$desc_plot <- renderUI({
-    title       <- paste0("<b>", variable_rank(), "</b>:")
+    title <- paste0("<b>", variable_rank(), "</b>:")
     description <- subset(dict, title_var_en == variable_rank())$desc_var_en
     htmltools::HTML(paste(title, description))
   })
@@ -223,14 +315,17 @@ server <- function(input, output, session) {
     plot_rank(variable_rank())
   })
 
-# Download Data ---------------------------------------------------------------
+  # Download Data ---------------------------------------------------------------
 
-  sel_geo <- reactive({ input$dwn_geo })
+  sel_geo <- reactive({
+    input$dwn_geo
+  })
 
   data <- reactive({
-    switch(sel_geo(),
-      "UDH"          = atlas,
-      "Region"       = atlas_region,
+    switch(
+      sel_geo(),
+      "UDH" = atlas,
+      "Region" = atlas_region,
       "Metro Region" = rmdata
     )
   })
@@ -239,14 +334,16 @@ server <- function(input, output, session) {
     head(sf::st_drop_geometry(data()), 1000)
   })
 
-  is_geo <- reactive({ input$dwn_checkbox })
+  is_geo <- reactive({
+    input$dwn_checkbox
+  })
 
   output$dwn_table <- DT::renderDataTable({
     DT::datatable(
       preview(),
-      caption    = "Preview includes only the first 1,000 rows.",
+      caption = "Preview includes only the first 1,000 rows.",
       extensions = "FixedColumns",
-      options    = list(scrollX = TRUE, fixedColumns = TRUE, pageLength = 5)
+      options = list(scrollX = TRUE, fixedColumns = TRUE, pageLength = 5)
     )
   })
 

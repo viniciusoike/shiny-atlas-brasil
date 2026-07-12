@@ -1,9 +1,7 @@
 clean_geometries <- function(shp) {
-  
   shp <- sf::st_transform(shp, crs = 4326)
   shp <- sf::st_make_valid(shp)
   return(shp)
-  
 }
 # Accumulated consumer price inflation from Aug/2010-Jan/2023
 cpi_adjust00 <- 3.96710740
@@ -13,20 +11,18 @@ brl_usd <- 5.09
 
 # Gets ordered list of metropolitan regions based on geographical resolution
 get_choice_metro <- function(geo = "UDH") {
-  
   stopifnot(any(geo %in% c("UDH", "Region")))
-  
+
   if (geo == "UDH") {
     choices <- na.omit(unique(atlas$name_metro))
   } else if (geo == "Region") {
     choices <- na.omit(unique(atlas_region$name_metro))
   }
-  
+
   out <- choice_metro_regions[choice_metro_regions %in% choices]
   out <- out[order(names(out))]
-  
+
   return(out)
-  
 }
 
 aboutme_en <-

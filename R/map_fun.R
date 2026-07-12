@@ -1,5 +1,4 @@
 setup_map <- function(rm, y, geo = "UDH") {
-
   current_metro <- as.character(unique(rm))
 
   if (geo == "UDH") {
@@ -20,32 +19,32 @@ setup_map <- function(rm, y, geo = "UDH") {
   }
 
   list(
-    atlas      = metro_atlas,
+    atlas = metro_atlas,
     city_border = border,
     city_center = center
   )
 }
 
 map_atlas <- function(
-    metro    = "Porto Alegre",
-    year_sel = 2010,
-    geo      = "UDH",
-    pal      = "EKIO Blue",
-    type     = "Natural Breaks (Jenks)",
-    var_sel  = "HDI (overall)",
-    n        = 5) {
-
-  dat          <- setup_map(rm = metro, y = year_sel, geo = geo)
+  metro = "Porto Alegre",
+  year_sel = 2010,
+  geo = "UDH",
+  pal = "EKIO Blue-Orange",
+  type = "Natural Breaks (Jenks)",
+  var_sel = "HDI (overall)",
+  n = 5
+) {
+  dat <- setup_map(rm = metro, y = year_sel, geo = geo)
   map_variable <- unique(subset(dict, title_var_en == var_sel)$variable)
-  digits       <- unique(subset(dict, variable == map_variable)$digits)
-  id           <- ifelse(geo == "UDH", "name_udh", "name_region")
+  digits <- unique(subset(dict, variable == map_variable)$digits)
+  id <- ifelse(geo == "UDH", "name_udh", "name_region")
 
   if (stringr::str_detect(map_variable, "^idh")) {
     popup_vars <- c(
-      "IDHM: "      = "idhm",
+      "IDHM: " = "idhm",
       "Education: " = "idhm_e",
-      "Health: "    = "idhm_l",
-      "Income: "    = "idhm_r"
+      "Health: " = "idhm_l",
+      "Income: " = "idhm_r"
     )
   } else {
     popup_vars <- map_variable
@@ -60,18 +59,18 @@ map_atlas <- function(
 
   tm_shape(dat$atlas) +
     tm_polygons(
-      fill        = map_variable,
-      fill.scale  = tm_scale_intervals(
+      fill = map_variable,
+      fill.scale = tm_scale_intervals(
         values = choice_pal[[pal]],
-        style  = choice_type[[type]],
-        n      = n
+        style = choice_type[[type]],
+        n = n
       ),
       fill.legend = tm_legend(title = var_sel),
-      fill_alpha  = 0.6,
-      col         = "gray80",
-      lwd         = 1,
-      id          = id,
-      popup.vars  = popup_vars,
+      fill_alpha = 0.6,
+      col = "gray80",
+      lwd = 1,
+      id = id,
+      popup.vars = popup_vars,
       popup.format = list(digits = digits)
     ) +
     tm_shape(dat$city_border) +
