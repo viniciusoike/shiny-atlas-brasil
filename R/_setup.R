@@ -8,15 +8,16 @@ tmap_mode(mode = "view")
 
 # Data Input --------------------------------------------------------------
 
-atlas <- readRDS(here("data/atlas_brasil.rds"))
-atlas_region <- readRDS(here("data/atlas_region.rds"))
-dict <- readr::read_csv(here("data/dictionary.csv"))
-cities <- readRDS(here("data/shape_cities_metro.rds"))
+atlas <- readr::read_rds(here("data/atlas_brasil.rds"))
+atlas_region <- readr::read_rds(here("data/atlas_region.rds"))
+dict <- readr::read_csv(here("data/dictionary.csv"), show_col_types = FALSE)
+cities <- readr::read_rds(here("data/shape_cities_metro.rds"))
 centroids <- readr::read_csv(
-  here("data/shape_centroid_capitals.csv")
+  here("data/shape_centroid_capitals.csv"),
+  show_col_types = FALSE
 )
-rmdata <- readr::read_csv(here("data/rmdata.csv"))
-dict_rm <- readr::read_csv(here("data/dict_rm.csv"))
+rmdata <- readr::read_csv(here("data/rmdata.csv"), show_col_types = FALSE)
+dict_rm <- readr::read_csv(here("data/dict_rm.csv"), show_col_types = FALSE)
 
 rmdata <- dplyr::filter(rmdata, year %in% c(2000, 2010, 2024))
 
@@ -49,30 +50,30 @@ choice_pal <- list(
     "#234E52"
   ),
   `EKIO Blue-Orange` = c(
-    "#0D1B2A",
-    "#1E3A5F",
-    "#3A6EA5",
-    "#7EB6D8",
-    "#D4E8F5",
-    "#F5F0EB",
-    "#FEEBC8",
-    "#F6AD55",
-    "#DD6B20",
+    "#7B341E",
     "#9C4221",
-    "#7B341E"
+    "#DD6B20",
+    "#F6AD55",
+    "#FEEBC8",
+    "#F5F0EB",
+    "#D4E8F5",
+    "#7EB6D8",
+    "#3A6EA5",
+    "#1E3A5F",
+    "#0D1B2A"
   ),
   `EKIO Teal-Orange` = c(
-    "#234E52",
-    "#2C7A7B",
-    "#38B2AC",
-    "#81E6D9",
-    "#E6FFFA",
-    "#F5F0EB",
-    "#FEEBC8",
-    "#F6AD55",
-    "#DD6B20",
+    "#7B341E",
     "#9C4221",
-    "#7B341E"
+    "#DD6B20",
+    "#F6AD55",
+    "#FEEBC8",
+    "#F5F0EB",
+    "#E6FFFA",
+    "#81E6D9",
+    "#38B2AC",
+    "#2C7A7B",
+    "#234E52"
   )
 )
 

@@ -99,7 +99,7 @@ ui <- page_navbar(
           "palette",
           "Palette",
           names(choice_pal),
-          selected = "EKIO Blue"
+          selected = "EKIO Blue-Orange"
         ),
         h5("Variable Description"),
         htmlOutput("description")
