@@ -65,6 +65,6 @@ cities_metro <- dplyr::select(cities_metro, code_muni, name_metro)
 cities_metro <- sf::st_make_valid(cities_metro)
 
 # Export all shapes
-qs::qsave(cities_metro, here::here("data/shape_cities_metro.qs"))
+readr::write_rds(cities_metro, here::here("data/shape_cities_metro.rds"))
 readr::write_csv(capital_metro, here::here("data/shape_centroid_capitals.csv"))
 readr::write_csv(id_metro, here::here("data/id_metro_regions.csv"))

@@ -26,7 +26,7 @@ Access the app at: **https://viniciusoike-shiny-atlas-brasil.share.connect.posit
 | [Shiny](https://shiny.posit.co/) | Web application framework |
 | [tmap](https://r-tmap.github.io/tmap/) | Interactive choropleth maps |
 | [plotly](https://plotly.com/r/) | Dumbbell / ranking chart |
-| [qs](https://github.com/traversc/qs) | Fast serialization of spatial data |
+| [readr](https://readr.tidyverse.org/) | Fast serialization of spatial data |
 | [renv](https://rstudio.github.io/renv/) | Reproducible dependency management |
 
 ## Repository Structure
@@ -39,13 +39,13 @@ Access the app at: **https://viniciusoike-shiny-atlas-brasil.share.connect.posit
 │   ├── map_fun.R      # tmap rendering helpers
 │   ├── plot_fun.R     # plotly chart helpers
 │   └── utils.R        # Shared utilities
-├── data/              # Cleaned data (qs + csv)
+├── data/              # Cleaned data (rds + csv)
 ├── data-raw/          # Raw Atlas Brasil files + cleaning scripts
 ├── styles.css         # Custom CSS
 └── gomap.js           # JavaScript for map interaction
 ```
 
-Raw data is downloaded from the [Atlas Brasil library](http://www.atlasbrasil.org.br/acervo/biblioteca) and cleaned in `data-raw/`. Spatial objects are stored as `.qs` files for compact size and fast I/O; translated variable dictionaries (`dictionary_*.xlsx`) are also included there.
+Raw data is downloaded from the [Atlas Brasil library](http://www.atlasbrasil.org.br/acervo/biblioteca) and cleaned in `data-raw/`. Spatial objects are stored as `.rds` files; translated variable dictionaries (`dictionary_*.xlsx`) are also included there.
 
 ## Related Dashboards
 

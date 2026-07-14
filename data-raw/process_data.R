@@ -459,6 +459,6 @@ atlas_region <- left_join(
 atlas_brasil <- sf::st_make_valid(atlas_brasil)
 atlas_region <- sf::st_make_valid(atlas_region)
 
-qs::qsave(atlas_brasil, here::here("data/atlas_brasil.qs"))
-qs::qsave(atlas_region, here::here("data/atlas_region.qs"))
+readr::write_rds(atlas_brasil, here::here("data/atlas_brasil.rds"))
+readr::write_rds(atlas_region, here::here("data/atlas_region.rds"))
 readr::write_csv(dictionary, here::here("data/dictionary.csv"))
