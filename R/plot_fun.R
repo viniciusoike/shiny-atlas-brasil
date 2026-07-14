@@ -15,8 +15,12 @@ setup_plot <- function(x) {
       values_from = dplyr::all_of(variable)
     )
 
-  # Orders name_metro by the variable's values in 2000
-  lvls <- df[["name_metro"]][order(df[["year_2000"]])]
+  # Orders name_metro by the 2024 PNAD estimate, falling back to the 2010
+  # census value for metros without 2024 coverage (e.g. Aracaju, João
+  # Pessoa, Macapá), so they rank by their real value instead of being
+  # pushed to one end by a missing sort key
+  sort_key <- dplyr::coalesce(df[["year_2024"]], df[["year_2010"]])
+  lvls <- df[["name_metro"]][order(sort_key)]
   # Converts to factor and arranges
   df <- df |>
     mutate(name_metro = factor(name_metro, levels = lvls)) |>
