@@ -52,6 +52,8 @@ Raw data is downloaded from the [Atlas Brasil library](http://www.atlasbrasil.or
 | Dashboard | Description |
 |-----------|-------------|
 | [shiny-firjan-ifdm](https://github.com/viniciusoike/shiny-firjan-ifdm) | FIRJAN Municipal Development Index (IFDM) across all 5,570 Brazilian municipalities (2013–2023) |
+| [shiny-painel-mercado](https://github.com/viniciusoike/shiny-painel-mercado) | Brazilian real estate market indices: prices, credit, macro, and São Paulo housing indicators |
+| [metrosp-explorer](https://github.com/viniciusoike/metrosp-explorer) | Passenger demand on the São Paulo metro, built with Shiny + bslib |
 
 ## Data Source
 
