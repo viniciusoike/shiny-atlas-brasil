@@ -4,6 +4,7 @@
 .Ruserdata
 .DS_Store
 .posit/
+.playwright-mcp/
 
 data-raw/atlas_data/
 data-raw/atlas_dictionary/
