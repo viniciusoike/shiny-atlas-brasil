@@ -41,3 +41,17 @@ Demographic,poptot,Population,Total population,0
 Demographic,pop_young,Population (0-18),Total population aged between 0 and 18 years.,0
 Demographic,pop_adult,Population (18-65),Total population aged between 18 and 65 years.,0
 Demographic,pop_elder,Population (65+),Total population aged 65 years or over.,0
+Work,p_agro,Employment Rate (Agriculture),Share of working-age individuals employed in the agriculture sector.,2
+Work,p_com,Emplyment Rate (Commerce),Share of working-age individuals employed in the commerce sector.,2
+Work,p_constr,Employment Rate (Construction),Share of working-age individuals employed in the construction sector.,2
+Work,p_extr,Employment Rate (Mineral Extraction),Share of working-age individuals employed in the mineral extraction sector.,2
+Work,p_serv,Employment Rate (Services),Share of working-age individuals employed in the services sector.,2
+Work,p_siup,Employment Rate (Mineral Extraction),Share of working-age individuals employed in the mineral extraction sector.,2
+Work,p_transf,Employment Rate (Manufacturing),Share of working-age individuals employed in the manufacturing sector.,2
+Work,cpr,Employment Rate (Self-employed),Share of working-age individuals that are self-employed.,2
+Work,emp,Employment Rate (Entrepeneurs),Share of working-age individuals that are entrepeneurs.,2
+Work,p_fund,Education (primary),Share of occupied working-age individuals that completed atleast their primary education,2
+Work,p_med,Education (secondary),Share of occupied working-age individuals that completed atleast their secondary education (high school),2
+Work,p_super,Education (tertiary),Share of occupied working-age individuals that completed atleast their tertiary education (college),2
+Work,t_des1824,Unemployment Rate (18-24),"Percentage of economically active population in this age group who were unemployed, meaning they were not employed in the week prior to the Census date but had actively sought employment during the previous month.",1
+Work,t_des2529,Unemployment Rate (25-29),"Percentage of economically active population in this age group who were unemployed, meaning they were not employed in the week prior to the Census date but had actively sought employment during the previous month.",1

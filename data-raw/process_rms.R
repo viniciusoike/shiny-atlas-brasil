@@ -16,6 +16,16 @@ dict_pnad <- read_excel(
   sheet = "subdictionary"
 )
 
+#> Add "Work" category variables, available in the RM-level census source
+#> but absent from dict_census/dict_pnad. Excludes renocup (already tracked
+#> under Income) and t_des (entirely NA in this source, unlike the
+#> age-specific unemployment rates). PNAD (2012-2024) has no equivalent
+#> columns, so Work is census-only (2000, 2010).
+dict_atlas <- read_excel(here("data-raw/dictionary_atlas.xlsx"), sheet = 1)
+dict_work <- dict_atlas %>%
+  filter(category == "Work", !variable %in% c("renocup", "t_des"))
+dict_census <- bind_rows(dict_census, dict_work)
+
 #> Import PNAD data base (2012-2024, "Total B" sheet = totals without race breakdown)
 pnad_dat <- read_excel(here("data-raw/adh_radar_base_2012_2024.xlsx"), sheet = "Total B")
 #> Convert column names to lower
@@ -129,6 +139,8 @@ unique(pnad_dat$year)
 census_dat <- census_dat %>%
   rename(anosest = e_anosestudo, poptot = pop)
 
-dat <- rbind(census_dat, pnad_dat)
+#> bind_rows (not rbind) since Work columns only exist in census_dat;
+#> pnad_dat rows get NA for those variables
+dat <- bind_rows(census_dat, pnad_dat)
 readr::write_csv(dat, here("data/rmdata.csv"))
-readr::write_csv(dict_pnad, here("data/dict_rm.csv"))
+readr::write_csv(bind_rows(dict_pnad, dict_work), here("data/dict_rm.csv"))
