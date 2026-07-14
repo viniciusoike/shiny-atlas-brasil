@@ -122,7 +122,7 @@ ui <- page_navbar(
         selectInput(
           "cat_plot",
           "Category",
-          unique(dict$category),
+          unique(dict_rm$category),
           selected = "HDI"
         ),
         selectInput(
