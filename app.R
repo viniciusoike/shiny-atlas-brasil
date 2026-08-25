@@ -189,6 +189,27 @@ ui <- page_navbar(
           p(about_app1),
           p(about_app2),
           p(about_app3),
+          h5("About the data", class = "text-primary mt-3"),
+          p(
+            about_data1,
+            " See the ",
+            tags$a(
+              "Atlas Brasil",
+              href = "https://www.atlasbrasil.org.br/",
+              target = "_blank"
+            ),
+            " platform for the original dataset."
+          ),
+          p(
+            about_data2,
+            " See the ",
+            tags$a(
+              "IBGE",
+              href = "https://www.ibge.gov.br/",
+              target = "_blank"
+            ),
+            " for information about the original statistical sources."
+          ),
           h6("Links", class = "mt-4"),
           tags$ul(
             class = "list-unstyled",

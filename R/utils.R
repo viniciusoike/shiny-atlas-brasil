@@ -34,9 +34,21 @@ from the University of São Paulo (USP), one of the most prestigious universitie
 
 about_app1 <-
   "The Atlas of Human Development is a comprehensive collection of development indicators in Brazil.
- It provides access to information that reveals socioeconomic realities and inequalities.
- The data is compiled from IBGE's decennial Census and yearly PNAD/C survey. It is
-the result of a collaborative effort between PNUD (UN), IPEA, and FJP."
+ It provides access to information that reveals socioeconomic realities and inequalities."
+
+about_data1 <-
+  "This app uses a curated subset of the Atlas of Human Development in Brazil (Atlas Brasil),
+produced through a partnership between the United Nations Development Programme (PNUD),
+the Institute for Applied Economic Research (Ipea), and the João Pinheiro Foundation (FJP).
+The underlying indicators are based primarily on data from the Brazilian Institute of Geography
+and Statistics (IBGE), including the Demographic Census and the Continuous National Household
+Sample Survey (PNAD Contínua/PNADC)."
+
+about_data2 <-
+  "The map covers 25 metropolitan regions and 11,674 Human Development Units (UDHs), with
+Atlas Brasil data for 2000 and 2010. The ranking tab combines these Census years with
+metropolitan-region PNADC estimates from 2012 through 2024. The bundled data and app were
+last updated on July 13, 2026."
 
 about_app2 <-
   "The interactive map displays both regions and UDHs (human development units) for the
