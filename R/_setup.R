@@ -25,55 +25,51 @@ rmdata <- dplyr::filter(rmdata, year %in% c(2000, 2010, 2024))
 
 choice_years <- c(2000, 2010)
 
-# Sequential and diverging palettes sourced from the EKIO brand identity
+# Sequential and diverging palettes from ekioplot
 choice_pal <- list(
-  `EKIO Blue` = c(
-    "#EEF5FA",
-    "#D4E8F5",
-    "#A8D0E8",
-    "#7EB6D8",
-    "#4A90C2",
-    "#3A6EA5",
-    "#2B4C7E",
+  `Blue` = c(
+    "#E8F6FF",
+    "#B1D8F2",
+    "#84B8DD",
+    "#5597CC",
+    "#3E76AC",
+    "#305687",
     "#1E3A5F",
+    "#152A44",
     "#0D1B2A"
   ),
-  `EKIO Teal` = c(
-    "#E6FFFA",
-    "#B2F5EA",
-    "#81E6D9",
-    "#4FD1C5",
-    "#38B2AC",
-    "#319795",
-    "#2C7A7B",
-    "#285E61",
-    "#234E52"
+  `Teal` = c(
+    "#E2F9FA",
+    "#AFDCDD",
+    "#7EBEC0",
+    "#40A2A3",
+    "#158281",
+    "#006261",
+    "#004342",
+    "#013031",
+    "#051F20"
   ),
-  `EKIO Blue-Orange` = c(
-    "#7B341E",
-    "#9C4221",
-    "#DD6B20",
-    "#F6AD55",
-    "#FEEBC8",
-    "#F5F0EB",
-    "#D4E8F5",
-    "#7EB6D8",
-    "#3A6EA5",
-    "#1E3A5F",
-    "#0D1B2A"
+  `Blue-Orange` = c(
+    "#152A44",
+    "#305687",
+    "#5597CC",
+    "#B1D8F2",
+    "#F5F3EF",
+    "#F7C7A0",
+    "#D3742A",
+    "#893A00",
+    "#471904"
   ),
-  `EKIO Teal-Orange` = c(
-    "#7B341E",
-    "#9C4221",
-    "#DD6B20",
-    "#F6AD55",
-    "#FEEBC8",
-    "#F5F0EB",
-    "#E6FFFA",
-    "#81E6D9",
-    "#38B2AC",
-    "#2C7A7B",
-    "#234E52"
+  `Teal-Orange` = c(
+    "#013031",
+    "#006261",
+    "#40A2A3",
+    "#AFDCDD",
+    "#F5F3EF",
+    "#F7C7A0",
+    "#D3742A",
+    "#893A00",
+    "#471904"
   )
 )
 

@@ -5,12 +5,12 @@ library(shinycssloaders)
 # EKIO brand theme ------------------------------------------------------------
 ekio_theme <- bs_theme(
   version = 5,
-  bg = "#ffffff",
-  fg = "#1A202C",
+  bg = "#FEFEFE",
+  fg = "#191A1C",
   primary = "#1E3A5F",
-  secondary = "#3A6EA5",
-  success = "#2C7A7B",
-  warning = "#DD6B20",
+  secondary = "#3E76AC",
+  success = "#006261",
+  warning = "#D3742A",
   "navbar-bg" = "#1E3A5F",
   base_font = font_collection(
     "Helvetica Neue",
@@ -99,7 +99,7 @@ ui <- page_navbar(
           "palette",
           "Palette",
           names(choice_pal),
-          selected = "EKIO Blue-Orange"
+          selected = "Blue-Orange"
         ),
         h5("Variable Description"),
         htmlOutput("description")

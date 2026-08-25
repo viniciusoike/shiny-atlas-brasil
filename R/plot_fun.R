@@ -60,14 +60,14 @@ plot_rank <- function(x) {
       y = ~name_metro,
       marker = list(size = 10),
       name = "2000",
-      color = I("#A8D0E8")
+      color = I("#84B8DD")
     ) %>%
     add_markers(
       x = ~year_2010,
       y = ~name_metro,
       marker = list(size = 10),
       name = "2010",
-      color = I("#3A6EA5")
+      color = I("#3E76AC")
     ) %>%
     add_markers(
       x = ~year_2024,

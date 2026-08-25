@@ -2,14 +2,13 @@
 :root {
   --ekio-blue-900: #0D1B2A;
   --ekio-blue-700: #1E3A5F;
-  --ekio-blue-600: #2B4C7E;
-  --ekio-blue-500: #3A6EA5;
-  --ekio-blue-400: #4A90C2;
-  --ekio-blue-100: #D4E8F5;
-  --ekio-blue-50:  #EEF5FA;
-  --ekio-gray-900: #1A202C;
-  --ekio-gray-700: #4A5568;
-  --ekio-gray-300: #E2E8F0;
+  --ekio-blue-600: #305687;
+  --ekio-blue-500: #3E76AC;
+  --ekio-blue-400: #5597CC;
+  --ekio-blue-100: #E8F6FF;
+  --ekio-gray-900: #191A1C;
+  --ekio-gray-700: #373A3D;
+  --ekio-gray-300: #AEB1B5;
 }
 
 /* ---- Map tab: full-screen layout ---------------------------------- */
@@ -26,7 +25,7 @@ div.outer {
 
 /* ---- Map control panel -------------------------------------------- */
 #controls {
-  background-color: #ffffff;
+  background-color: #FEFEFE;
   border-left: 3px solid var(--ekio-blue-400);
   border-radius: 4px;
   padding: 0 20px 20px 20px;
@@ -60,7 +59,7 @@ div.outer {
 
 /* ---- Map background ----------------------------------------------- */
 .leaflet-container {
-  background-color: #ffffff !important;
+  background-color: #FEFEFE !important;
 }
 
 /* ---- Numeric input width ------------------------------------------ */

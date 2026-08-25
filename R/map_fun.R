@@ -29,7 +29,7 @@ map_atlas <- function(
   metro = "RM Porto Alegre",
   year_sel = 2010,
   geo = "UDH",
-  pal = "EKIO Blue-Orange",
+  pal = "Blue-Orange",
   type = "Natural Breaks (Jenks)",
   var_sel = "HDI (overall)",
   n = 5
