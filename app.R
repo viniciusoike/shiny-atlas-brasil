@@ -23,10 +23,11 @@ ekio_theme <- bs_theme(
   danger = "#AF4942",
   "navbar-bg" = "#1E3A5F",
   "card-bg" = "#FFFFFF",
-  # Tables and pagination live inside white cards; by default they take the
-  # off-white page background and a gray disabled-button fill
+  # Tables, pagination and inputs sit on white cards and panels; by default
+  # they take the off-white page background and a gray disabled-button fill
   "table-bg" = "#FFFFFF",
   "pagination-disabled-bg" = "#FFFFFF",
+  "input-bg" = "#FFFFFF",
   base_font = ekio_font,
   heading_font = ekio_font
 )
