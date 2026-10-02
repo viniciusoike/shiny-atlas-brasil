@@ -1,14 +1,57 @@
 /* ---- EKIO Brand Tokens -------------------------------------------- */
+/* Source of truth: ekioplot/inst/ekio-palettes.yaml */
 :root {
-  --ekio-blue-900: #0D1B2A;
-  --ekio-blue-700: #1E3A5F;
-  --ekio-blue-600: #305687;
-  --ekio-blue-500: #3E76AC;
-  --ekio-blue-400: #5597CC;
-  --ekio-blue-100: #E8F6FF;
-  --ekio-gray-900: #191A1C;
-  --ekio-gray-700: #373A3D;
-  --ekio-gray-300: #AEB1B5;
+  --ekio-blue-900: #0d1b2a;
+  --ekio-blue-800: #152a44;
+  --ekio-blue-700: #1e3a5f;
+  --ekio-blue-600: #2e5485;
+  --ekio-blue-500: #3a71a8;
+  --ekio-blue-400: #5194c8;
+  --ekio-blue-100: #e8f6ff;
+  --ekio-gray-900: #191a1c;
+  --ekio-gray-700: #373a3d;
+  --ekio-gray-500: #6a6e74;
+  --ekio-gray-300: #abaeb3;
+  --ekio-gray-200: #ced0d4;
+  --ekio-white: #ffffff;
+  --ekio-offwhite: #fbfbf6;
+  --ekio-cream: #efe8dc;
+}
+
+/* ---- Navbar brand acts as the home link ---------------------------- */
+/* bslib nests the title inside <span class="navbar-brand">, so the link is a
+   child of the brand rather than the brand itself */
+.navbar-brand .atlas-brand {
+  color: var(--ekio-white);
+  text-decoration: none;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: border-color 150ms ease-in-out;
+}
+.navbar-brand .atlas-brand:hover,
+.navbar-brand .atlas-brand:focus-visible {
+  color: var(--ekio-white);
+  border-bottom-color: var(--ekio-cream);
+}
+
+/* ---- "developed by EKIO" badge ------------------------------------- */
+.ekio-badge-navbar {
+  display: flex;
+  align-items: center;
+  padding: 0 0.75rem;
+}
+.ekio-badge-navbar img {
+  height: 30px;
+  width: auto;
+  opacity: 0.9;
+  transition: opacity 150ms ease-in-out;
+}
+.ekio-badge-navbar a:hover img {
+  opacity: 1;
+}
+.ekio-badge-about img {
+  height: 56px;
+  width: auto;
 }
 
 /* ---- Map tab: full-screen layout ---------------------------------- */
@@ -24,22 +67,25 @@ div.outer {
 }
 
 /* ---- Map control panel -------------------------------------------- */
+/* The panel sits over a light basemap, so it stays near-opaque: a
+   translucent panel on Positron drops label contrast below AA */
 #controls {
-  background-color: #FEFEFE;
-  border-left: 3px solid var(--ekio-blue-400);
+  background-color: var(--ekio-white);
+  border-left: 3px solid var(--ekio-blue-500);
   border-radius: 4px;
-  padding: 0 20px 20px 20px;
+  padding: 16px 20px 20px 20px;
   cursor: move;
-  opacity: 0.68;
+  opacity: 0.94;
   zoom: 0.9;
   transition: opacity 500ms 1s;
-  box-shadow: 0 2px 12px rgba(30, 58, 95, 0.14);
+  box-shadow: 0 2px 12px rgba(30, 58, 95, 0.18);
 }
 #controls:hover {
-  opacity: 0.97;
+  opacity: 1;
   transition-delay: 0;
 }
 #controls h2 {
+  margin-top: 0;
   font-size: 1rem;
   font-weight: 600;
   color: var(--ekio-blue-700);
@@ -59,7 +105,7 @@ div.outer {
 
 /* ---- Map background ----------------------------------------------- */
 .leaflet-container {
-  background-color: #FEFEFE !important;
+  background-color: var(--ekio-white) !important;
 }
 
 /* ---- Numeric input width ------------------------------------------ */

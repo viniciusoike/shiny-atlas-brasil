@@ -1,3 +1,59 @@
+#' Is the app running on a deployment server?
+#'
+#' shinyapps.io and Posit Connect both set `R_CONFIG_ACTIVE`; Shiny Server sets
+#' `SHINY_SERVER_VERSION`. None of them are set by `shiny::runApp()` locally.
+is_deployed <- function() {
+  Sys.getenv("R_CONFIG_ACTIVE") %in%
+    c("shinyapps", "rsconnect") ||
+    nzchar(Sys.getenv("SHINY_SERVER_VERSION"))
+}
+
+#' Carto API key for the current environment
+#'
+#' Deployments read `CARTO_BASEMAP_SHINY`, local sessions read
+#' `CARTO_BASEMAP_INTERNAL_KEY`. The two never substitute for each other, so a
+#' deploy that is missing its secret does not fall back to the internal key.
+carto_key <- function() {
+  var <- if (is_deployed()) {
+    "CARTO_BASEMAP_SHINY"
+  } else {
+    "CARTO_BASEMAP_INTERNAL_KEY"
+  }
+  Sys.getenv(var)
+}
+
+#' Pick the basemap tile server
+#'
+#' Carto requires an API key for its basemaps. With a key the map uses Positron;
+#' without one it falls back to a provider that serves tiles without a key, so
+#' the map never renders the Carto watermark.
+#'
+#' The URL is built by hand because `leaflet::addProviderTiles()` drops the key
+#' (rstudio/leaflet#965). A `server` starting with `http` makes tmap call
+#' `leaflet::addTiles()` instead, which keeps the query string. Carto reads the
+#' key from `key=`; `api_key=` returns the watermark tile.
+basemap_server <- function() {
+  key <- carto_key()
+
+  if (!nzchar(key)) {
+    return("Esri.WorldGrayCanvas")
+  }
+
+  paste0(
+    "https://basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}.png?key=",
+    key
+  )
+}
+
+#' Attribution line for the basemap in use
+basemap_credits <- function() {
+  if (nzchar(carto_key())) {
+    "\u00a9 OpenStreetMap contributors \u00a9 CARTO"
+  } else {
+    "Tiles \u00a9 Esri"
+  }
+}
+
 setup_map <- function(rm, y, geo = "UDH") {
   current_metro <- as.character(unique(rm))
 
@@ -67,14 +123,15 @@ map_atlas <- function(
       ),
       fill.legend = tm_legend(title = var_sel),
       fill_alpha = 0.7,
-      col = "gray90",
+      col = ekio$gray_300,
       lwd = 0.8,
       id = id,
       popup.vars = popup_vars,
       popup.format = list(digits = digits)
     ) +
     tm_shape(dat$city_border) +
-    tm_borders(col = "gray75", lwd = 2) +
-    tm_basemap(server = "CartoDB.DarkMatter") +
+    tm_borders(col = ekio$gray_500, lwd = 2) +
+    tm_basemap(server = basemap_server()) +
+    tm_credits(basemap_credits()) +
     tm_view(set_view = map_center)
 }

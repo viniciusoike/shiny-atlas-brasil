@@ -44,7 +44,7 @@ plot_rank <- function(x) {
       xend = ~year_2010,
       y = ~name_metro,
       yend = ~name_metro,
-      color = I("gray60"),
+      color = I(ekio$gray_400),
       showlegend = FALSE
     ) %>%
     add_segments(
@@ -52,7 +52,7 @@ plot_rank <- function(x) {
       xend = ~year_2024,
       y = ~name_metro,
       yend = ~name_metro,
-      color = I("gray60"),
+      color = I(ekio$gray_400),
       showlegend = FALSE
     ) %>%
     add_markers(
@@ -60,29 +60,53 @@ plot_rank <- function(x) {
       y = ~name_metro,
       marker = list(size = 10),
       name = "2000",
-      color = I("#84B8DD")
+      color = I(ekio$blue_300)
     ) %>%
     add_markers(
       x = ~year_2010,
       y = ~name_metro,
       marker = list(size = 10),
       name = "2010",
-      color = I("#3E76AC")
+      color = I(ekio$blue_500)
     ) %>%
     add_markers(
       x = ~year_2024,
       y = ~name_metro,
       marker = list(size = 10),
       name = "2024",
-      color = I("#1E3A5F")
+      color = I(ekio$blue_700)
     ) %>%
     layout(
-      title = paste0("Ranking: ", title),
-      xaxis = list(title = title),
-      yaxis = list(title = ""),
-      margin = list(t = 40),
+      title = list(
+        text = paste0("Ranking: ", title),
+        font = list(color = ekio$blue_700, size = 18)
+      ),
+      paper_bgcolor = ekio$white,
+      plot_bgcolor = ekio$white,
+      xaxis = list(
+        title = title,
+        gridcolor = ekio$gray_200,
+        zeroline = FALSE,
+        linecolor = ekio$gray_300,
+        tickcolor = ekio$gray_300
+      ),
+      yaxis = list(
+        title = "",
+        gridcolor = ekio$gray_200,
+        zeroline = FALSE,
+        linecolor = ekio$gray_300,
+        tickcolor = ekio$gray_300
+      ),
+      legend = list(orientation = "h", x = 0, y = 1.04),
+      margin = list(t = 60),
+      hoverlabel = list(
+        bgcolor = ekio$white,
+        bordercolor = ekio$gray_300,
+        font = list(family = ekio_font_family, color = ekio$gray_700)
+      ),
       font = list(
-        family = "Helvetica Neue, Helvetica, Arial, sans-serif",
+        family = ekio_font_family,
+        color = ekio$gray_700,
         size = 14
       )
     )

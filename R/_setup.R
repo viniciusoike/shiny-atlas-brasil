@@ -21,55 +21,75 @@ dict_rm <- readr::read_csv(here("data/dict_rm.csv"), show_col_types = FALSE)
 
 rmdata <- dplyr::filter(rmdata, year %in% c(2000, 2010, 2024))
 
+# Brand tokens ------------------------------------------------------------
+
+# Source of truth: ekioplot/inst/ekio-palettes.yaml. Kept as literals rather
+# than a dependency on ekioplot so the app deploys from renv.lock alone.
+ekio <- list(
+  blue_700 = "#1E3A5F",
+  blue_500 = "#3A71A8",
+  blue_300 = "#82B5DA",
+  gray_700 = "#373A3D",
+  gray_500 = "#6A6E74",
+  gray_400 = "#898E93",
+  gray_300 = "#ABAEB3",
+  gray_200 = "#CED0D4",
+  white = "#FFFFFF"
+)
+
+ekio_font_family <- "Host Grotesk, Helvetica Neue, Helvetica, Arial, sans-serif"
+
+
 # Choices -----------------------------------------------------------------
 
 choice_years <- c(2000, 2010)
 
 # Sequential and diverging palettes from ekioplot
+# Source of truth: ekioplot/inst/ekio-palettes.yaml
 choice_pal <- list(
   `Blue` = c(
     "#E8F6FF",
-    "#B1D8F2",
-    "#84B8DD",
-    "#5597CC",
-    "#3E76AC",
-    "#305687",
+    "#B0D6F0",
+    "#82B5DA",
+    "#5194C8",
+    "#3A71A8",
+    "#2E5485",
     "#1E3A5F",
     "#152A44",
     "#0D1B2A"
   ),
   `Teal` = c(
     "#E2F9FA",
-    "#AFDCDD",
-    "#7EBEC0",
-    "#40A2A3",
-    "#158281",
-    "#006261",
+    "#ADDADC",
+    "#7BBBBD",
+    "#3C9E9F",
+    "#097E7D",
+    "#00605E",
     "#004342",
     "#013031",
     "#051F20"
   ),
   `Blue-Orange` = c(
-    "#152A44",
-    "#305687",
-    "#5597CC",
-    "#B1D8F2",
+    "#2E5485",
+    "#3A71A8",
+    "#82B5DA",
+    "#B0D6F0",
     "#F5F3EF",
-    "#F7C7A0",
-    "#D3742A",
-    "#893A00",
-    "#471904"
+    "#F6C59F",
+    "#E19D6A",
+    "#AB5000",
+    "#863900"
   ),
   `Teal-Orange` = c(
-    "#013031",
-    "#006261",
-    "#40A2A3",
-    "#AFDCDD",
+    "#00605E",
+    "#097E7D",
+    "#7BBBBD",
+    "#ADDADC",
     "#F5F3EF",
-    "#F7C7A0",
-    "#D3742A",
-    "#893A00",
-    "#471904"
+    "#F6C59F",
+    "#E19D6A",
+    "#AB5000",
+    "#863900"
   )
 )
 

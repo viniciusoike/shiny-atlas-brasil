@@ -3,33 +3,37 @@ library(bslib)
 library(shinycssloaders)
 
 # EKIO brand theme ------------------------------------------------------------
+# Color source of truth: ekioplot/inst/ekio-palettes.yaml
+ekio_font <- font_collection(
+  font_google("Host Grotesk", wght = c(300, 800), ital = c(0, 1)),
+  "Helvetica Neue",
+  "Helvetica",
+  "Arial",
+  "sans-serif"
+)
+
 ekio_theme <- bs_theme(
   version = 5,
-  bg = "#FEFEFE",
+  bg = "#FBFBF6",
   fg = "#191A1C",
   primary = "#1E3A5F",
-  secondary = "#3E76AC",
-  success = "#006261",
-  warning = "#D3742A",
+  secondary = "#3A71A8",
+  success = "#00605E",
+  warning = "#CF7126",
+  danger = "#AF4942",
   "navbar-bg" = "#1E3A5F",
-  base_font = font_collection(
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    "sans-serif"
-  ),
-  heading_font = font_collection(
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    "sans-serif"
-  )
+  "card-bg" = "#FFFFFF",
+  base_font = ekio_font,
+  heading_font = ekio_font
 )
 
 ui <- page_navbar(
-  title = tags$span(
+  title = tags$a(
     "Atlas Brasil",
-    style = "font-weight: 600; letter-spacing: 0.03em;"
+    href = "#",
+    class = "atlas-brand",
+    style = "font-weight: 600; letter-spacing: 0.03em;",
+    onclick = "Shiny.setInputValue('go_home', Math.random(), {priority: 'event'}); return false;"
   ),
   id = "nav",
   theme = ekio_theme,
@@ -49,7 +53,7 @@ ui <- page_navbar(
         id = "controls",
         fixed = TRUE,
         draggable = TRUE,
-        top = 60,
+        top = 72,
         left = 75,
         right = "auto",
         bottom = "auto",
@@ -133,11 +137,19 @@ ui <- page_navbar(
         ),
         hr(),
         h6("Variable Description"),
-        htmlOutput("desc_plot")
+        # Wrapped so the bslib sidebar gap container treats the description as
+        # one flex item: htmlOutput gets display:contents, which otherwise
+        # stacks the bold title and the text on separate lines
+        div(htmlOutput("desc_plot"))
       ),
-      withSpinner(
-        plotlyOutput("plot", height = "700px", width = "100%"),
-        color = "#1E3A5F"
+      card(
+        full_screen = TRUE,
+        card_body(
+          withSpinner(
+            plotlyOutput("plot", height = "700px", width = "100%"),
+            color = ekio$blue_700
+          )
+        )
       )
     )
   ),
@@ -164,6 +176,7 @@ ui <- page_navbar(
         )
       ),
       card(
+        full_screen = TRUE,
         card_header("Data Preview"),
         card_body(
           p(class = "text-muted small", "Preview shows the first 1,000 rows."),
@@ -231,7 +244,35 @@ ui <- page_navbar(
               icon("globe"),
               " Personal Website"
             ))
+          ),
+          div(
+            class = "ekio-badge-about mt-4 pt-3 border-top",
+            tags$a(
+              href = "https://www.ekio.com.br",
+              target = "_blank",
+              rel = "noopener",
+              tags$img(
+                src = "ekio-badge-developed-by.svg",
+                alt = "Developed by EKIO"
+              )
+            )
           )
+        )
+      )
+    )
+  ),
+
+  nav_spacer(),
+  nav_item(
+    div(
+      class = "ekio-badge-navbar",
+      tags$a(
+        href = "https://www.ekio.com.br",
+        target = "_blank",
+        rel = "noopener",
+        tags$img(
+          src = "ekio-badge-developed-by.svg",
+          alt = "Developed by EKIO"
         )
       )
     )
@@ -239,6 +280,12 @@ ui <- page_navbar(
 )
 
 server <- function(input, output, session) {
+  # Navbar brand acts as a home link ------------------------------------------
+
+  observeEvent(input$go_home, {
+    nav_select("nav", "Interactive Map")
+  })
+
   # Interactive Map -------------------------------------------------------------
 
   category <- reactive({
