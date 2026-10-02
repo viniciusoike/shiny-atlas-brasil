@@ -5,7 +5,7 @@ library(shinycssloaders)
 # EKIO brand theme ------------------------------------------------------------
 # Color source of truth: ekioplot/inst/ekio-palettes.yaml
 ekio_font <- font_collection(
-  font_google("Host Grotesk", wght = c(300, 800), ital = c(0, 1)),
+  font_google("Host Grotesk", wght = "300..800", ital = c(0, 1)),
   "Helvetica Neue",
   "Helvetica",
   "Arial",
@@ -23,6 +23,10 @@ ekio_theme <- bs_theme(
   danger = "#AF4942",
   "navbar-bg" = "#1E3A5F",
   "card-bg" = "#FFFFFF",
+  # Tables and pagination live inside white cards; by default they take the
+  # off-white page background and a gray disabled-button fill
+  "table-bg" = "#FFFFFF",
+  "pagination-disabled-bg" = "#FFFFFF",
   base_font = ekio_font,
   heading_font = ekio_font
 )

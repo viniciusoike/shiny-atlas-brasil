@@ -108,6 +108,14 @@ div.outer {
   background-color: var(--ekio-white) !important;
 }
 
+/* ---- Map typography ----------------------------------------------- */
+/* Leaflet sets its own font stack on the map, its controls and the tmap
+   legend, so they ignore the bslib base font */
+.leaflet-container,
+.leaflet-container .info.legend {
+  font-family: var(--bs-body-font-family);
+}
+
 /* ---- Numeric input width ------------------------------------------ */
 input[type="number"] {
   max-width: 80%;
